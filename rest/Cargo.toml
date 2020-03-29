@@ -1,0 +1,23 @@
+[package]
+name = "rest"
+version = "0.1.0"
+authors = ["kuronyago <y.pesterev@gmail.com>"]
+readme = "README.md"
+edition = "2018"
+
+[dependencies]
+warp = "0.2.2"
+tokio = { version = "0.2.13", features = ["macros"]}
+diesel = { version = "1.4.4", features = ["postgres", "r2d2", "uuid", "chrono"] }
+r2d2 = "0.8.8"
+dotenv = "0.15.0"
+uuid = { version = "0.6.5", features = ["serde", "v4"] } # must be exact eq to diesel's uuid deps
+serde = "1.0.105"
+serde_json = "1.0.50"
+serde_derive = "1.0.105"
+lazy_static = "1.4"
+chrono = { version = "0.4", features = ["serde"] }
+
+[[bin]]
+name = "rest"
+path = "src/main.rs"

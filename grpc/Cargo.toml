@@ -1,0 +1,26 @@
+[package]
+name = "grpc"
+version = "0.1.0"
+authors = ["kuronyago <y.pesterev@gmail.com>"]
+readme = "README.md"
+edition = "2018"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+test = false
+bench = false
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+test = false
+bench = false
+
+[dependencies]
+tonic = "0.1.1"
+prost = "0.6.1"
+tokio = { version = "0.2.13", features = ["macros"] }
+
+[build-dependencies]
+tonic-build = "0.1.1"
