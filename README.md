@@ -1,7 +1,7 @@
 # API examples
 
 # REST JSON API based on [warp] and [diesel]
-- echo DATABASE_URL=postgres://username:password@localhost/database > .env
+- echo DATABASE_URL=postgres://username:password@localhost/database > rest/.env
 - cargo build --release --bin rest
 
 # GRPC API base on [tonic], [prost] and [hyper]
