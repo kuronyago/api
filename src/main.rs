@@ -2,7 +2,14 @@ use warp::Filter;
 
 mod api;
 mod handlers;
+mod models;
 mod routes;
+mod schema;
+
+// #[macro_use]
+// extern crate lazy_static;
+#[macro_use]
+extern crate diesel;
 
 #[cfg(test)]
 mod tests;
