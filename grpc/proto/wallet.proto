@@ -1,0 +1,23 @@
+syntax = "proto3";
+package wallet;
+
+service Wallet {
+    rpc FindTransfer (FindTransferRequest) returns (FindTransferResponse);
+}
+
+message FindTransferRequest {
+    bytes external = 1;
+}
+
+message Transfer {
+    bytes external = 1;
+    bytes sender = 2;
+    bytes recipient = 3;
+    int32 issued = 4;
+    int32 gained = 5;
+}
+
+message FindTransferResponse {
+    int32 code = 1;
+    Transfer transfer = 2;
+}

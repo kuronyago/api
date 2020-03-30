@@ -21,6 +21,7 @@ bench = false
 tonic = "0.1.1"
 prost = "0.6.1"
 tokio = { version = "0.2.13", features = ["macros"] }
+uuid = { version = "0.8.1", features = ["serde", "v4"] }
 
 [build-dependencies]
 tonic-build = "0.1.1"
