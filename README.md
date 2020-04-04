@@ -5,6 +5,7 @@
 - cargo build --release --bin rest
 
 # GRPC API base on [tonic], [prost] and [hyper]
+- echo DATABASE_URL=postgres://username:password@localhost/database > grpc/.env
 - cargo build --release --bin client
 - cargo build --release --bin server
 

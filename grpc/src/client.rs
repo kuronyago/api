@@ -1,10 +1,8 @@
+use rpc::wallet::wallet_client::WalletClient;
+use rpc::wallet::FindTransferRequest;
 use uuid::Uuid;
-use wallet::wallet_client::WalletClient;
-use wallet::FindTransferRequest;
 
-pub mod wallet {
-    tonic::include_proto!("wallet");
-}
+mod rpc;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
