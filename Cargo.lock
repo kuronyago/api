@@ -1280,9 +1280,9 @@ dependencies = [
 
 [[package]]
 name = "rsocket_rust"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c1b7764b2cb5879122f87464c3106557d2b75aa49adc12ee4e5afdc7b83cc347"
+checksum = "81d07da59c327e2f650b6d238f27de5191228468f29dff6ab917084d9503213d"
 dependencies = [
  "bytes",
  "futures",
@@ -1293,9 +1293,9 @@ dependencies = [
 
 [[package]]
 name = "rsocket_rust_transport_websocket"
-version = "0.5.0"
+version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b504352567225c9f6361101203189140e4fa2e8f8d19bf99dc0e9728e3eb1beb"
+checksum = "939e611596e4694112f423b9b768d546688f9f7a48e27b4e86b2e5ae2e48125a"
 dependencies = [
  "bytes",
  "futures",
