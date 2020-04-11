@@ -15,7 +15,7 @@ name = "rsocket_client"
 path = "src/client.rs"
 
 [dependencies]
-tokio = "0.2.16"
+tokio = "0.2.17"
 rsocket_rust = "0.5.1"
 rsocket_rust_transport_websocket = "0.5.1"
 log = "0.4.8"
@@ -23,6 +23,6 @@ env_logger = "0.7.1"
 futures = "0.3.4"
 
 [dev-dependencies.tokio]
-version = "0.2.16"
+version = "0.2.17"
 default-features = false
 features = ["full"]

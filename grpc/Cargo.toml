@@ -6,13 +6,13 @@ readme = "README.md"
 edition = "2018"
 
 [[bin]]
-name = "client"
+name = "grpc_client"
 path = "src/client.rs"
 test = false
 bench = false
 
 [[bin]]
-name = "server"
+name = "grpc_server"
 path = "src/server.rs"
 test = false
 bench = false
