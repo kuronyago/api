@@ -9,11 +9,9 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
 
     let transport: WebsocketServerTransport = WebsocketServerTransport::from("127.0.0.1:8080");
 
-    let responder: ServerResponder = Box::new(|setup, socket| {
+    let responder: ServerResponder = Box::new(|setup, _socket| {
         info!("accept setup: {:?}", setup);
         Ok(Box::new(EchoRSocket))
-        // Or you can reject setup
-        // Err(From::from("SETUP_NOT_ALLOW"))
     });
 
     let on_start: Box<dyn FnMut() + Send + Sync> =

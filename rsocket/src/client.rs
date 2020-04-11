@@ -1,4 +1,5 @@
-use log::info;
+use futures::{stream, StreamExt};
+use log::{error, info};
 use rsocket_rust::prelude::{ClientResponder, EchoRSocket, Payload, RSocket, RSocketFactory};
 use rsocket_rust_transport_websocket::WebsocketClientTransport;
 use std::error::Error;
@@ -20,14 +21,27 @@ async fn main() -> Result<(), Box<dyn Error + Send + Sync>> {
         .await
         .unwrap();
 
-    let request_payload: Payload = Payload::builder()
-        .set_data_utf8("this is data")
-        .set_metadata_utf8("this is meta-data")
-        .build();
+    let sends: Vec<_> = (0..10)
+        .map(|n| {
+            let p = Payload::builder()
+                .set_data_utf8(&format!("Hello#{}", n))
+                .set_metadata_utf8("RUST")
+                .build();
+            Ok(p)
+        })
+        .collect();
 
-    let res = client.request_response(request_payload).await.unwrap();
+    let reqs = Box::pin(stream::iter(sends));
 
-    info!("got: {:?}", res);
+    let mut flux = client.request_channel(reqs);
+
+    loop {
+        match flux.next().await {
+            Some(Ok(v)) => info!("CHANNEL_RESPONSE OK: {:?}", v),
+            Some(Err(e)) => error!("CHANNEL_RESPONSE FAILED: {:?}", e),
+            None => break,
+        }
+    }
 
     client.close();
 

@@ -10,7 +10,7 @@
 - cargo build --release --bin grpc_server
 
 # RSocket API base on [rsocket_rust]
-- cargo build --release --bin grpc_client
+- cargo build --release --bin rsocket_client
 - cargo build --release --bin rsocket_server
 
 <!-- links -->
